@@ -15,6 +15,7 @@ class UsersFormType extends AbstractType
             ->add('name')
             ->add('Username')
             ->add('mail')
+            ->add('img_profile')
             ->add('submit',SubmitType::class)
         ;
     }
