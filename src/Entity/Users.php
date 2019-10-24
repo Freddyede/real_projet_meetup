@@ -38,6 +38,16 @@ class Users
      */
     private $products;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $img_profile;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $presentation;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -111,6 +121,30 @@ class Users
                 $product->setUserId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImgProfile(): ?string
+    {
+        return $this->img_profile;
+    }
+
+    public function setImgProfile(string $img_profile): self
+    {
+        $this->img_profile = $img_profile;
+
+        return $this;
+    }
+
+    public function getPresentation(): ?string
+    {
+        return $this->presentation;
+    }
+
+    public function setPresentation(string $presentation): self
+    {
+        $this->presentation = $presentation;
 
         return $this;
     }
