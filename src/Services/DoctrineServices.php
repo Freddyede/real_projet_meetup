@@ -19,10 +19,9 @@ class DoctrineServices {
     public function getUser($id){
         return $this->em->getRepository(Users::class)->find($id);
     }
-
-    public function sendForm($task){
-            $entityManager = $this->em;
-            $entityManager->persist($task);
-            $entityManager->flush();
+    public function removeUser($id){
+        $userDelete = $this->em->getRepository(Users::class)->find($id);
+        $this->em->remove($userDelete);
+        return $this->em->flush();
     }
 }
