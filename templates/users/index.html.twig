@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+{% block body %}
+<div class="container mt-5">
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col" class="text-center">Name</th>
+            <th scope="col" class="text-center">Username</th>
+            <th scope="col" class="text-center">Mail</th>
+            <th scope="col" class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td class="text-center">{{ user.name }}</td>
+                    <td class="text-center">{{ user.username }}</td>
+                    <td class="text-center">{{ user.mail }}</td>
+                    <td class="text-center">
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <a class="btn btn-info" href="{{ path('user_id', {id: user.id}) }}">Infos</a>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <a class="btn btn-success" href="{{ path('user_create', {id: user.id}) }}">Update</a>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <a class="btn btn-danger" href="{{ path('user_delete', {id: user.id}) }}">Delete</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
